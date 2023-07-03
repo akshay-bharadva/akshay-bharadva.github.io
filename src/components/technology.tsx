@@ -31,6 +31,11 @@ const Technologies: Tech[] = [
     name: "Prisma",
     desc: "TypeScript ORM when working with databases",
   },
+  {
+    href: "https://www.python.org/",
+    name: "Python",
+    desc: "Taking CS50P for learning Python.",
+  },
 ];
 
 export default function Technology({ children }: Props) {
@@ -42,7 +47,12 @@ export default function Technology({ children }: Props) {
       <div>
         {Technologies.map((tech) => (
           <p className="mb-2 font-space" key={tech.href}>
-            <a href={tech.href} rel="noreferrer" target="_blank" className="">
+            <a
+              href={tech.href}
+              rel="noreferrer"
+              target="_blank"
+              className="text-red-400 hover:text-red-600 transition"
+            >
               <span>
                 {tech.name} <BsArrowUpRight className="inline" />
               </span>

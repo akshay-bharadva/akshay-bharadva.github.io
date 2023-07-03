@@ -34,15 +34,17 @@ export default function Header({ children }: Props) {
           </Link>
         ))}
       </div>
-      <a
-        className="mr-2 p-2 text-2xl text-white justify-center items-center gap-1 hover:bg-zinc-800 transition-all rounded-lg"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="github-repo"
-        href="https://github.com/akshay-bharadva"
-      >
-        <AiFillGithub />
-      </a>
+      <div className="flex gap-2">
+        <Link
+          className="mr-2 p-2 text-2xl text-white justify-center items-center gap-1 hover:bg-zinc-700 transition-all rounded-lg"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="github-repo"
+          href="https://github.com/akshay-bharadva"
+        >
+          <AiFillGithub />
+        </Link>
+      </div>
     </header>
   );
 }

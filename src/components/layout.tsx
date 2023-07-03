@@ -12,15 +12,19 @@ export default function Layout({ children, title }: Props) {
   return (
     <>
       <Head>
-        <title>Akshay Bharadva | {title}</title>
+        <title>Akshay Bharadva{title ? `| ${title}` : `Portfolio`}</title>
       </Head>
-      <Container>
-        <Header />
-      </Container>
-      {children}
-      <Container>
-        <Footer />
-      </Container>
+      <div className="flex flex-col justify-between min-h-screen selection:bg-[#fffba0] selection:text-black">
+        <div>
+          <Container>
+            <Header />
+          </Container>
+          {children}
+        </div>
+        <Container>
+          <Footer />
+        </Container>
+      </div>
     </>
   );
 }
