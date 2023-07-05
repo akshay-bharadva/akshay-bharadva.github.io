@@ -10,13 +10,18 @@ export default function Hero({ children }: Props) {
           <h2 className="text-3xl font-bold text-white font-space mb-4">
             Akshay Bharadva <small className="text-sm">(He/Him)</small>
           </h2>
-          <p className="font-space">
+          <p className="font-space mb-2">
             Heya! I&apos;m fullstack developer and life-long learner, living in
-            India. I love to learn new technologies and collaborate with other
-            developers to code product into reality, btw I love open-source
-            enthusiast. fun but sad fact: I often misspelled the return keyword
-            i.e, <span className="text-red-400">&ldquo;reutrn&rdquo;</span>. let
-            me know if you have any trick so that I can avoid this mistake.
+            India. I enjoy learning new technologies and collaborating with
+            other developers to make products a reality. I also enjoy
+            open-source, and despite having a full-time job, I devote time to
+            exploring open-source projects and studying their tech stack and
+            coding conventions.
+          </p>
+          <p className="font-space">
+            Fun but sad fact: I often misspelled the return keyword. i.e,{" "}
+            <span className="text-red-400">&ldquo;reutrn&rdquo;</span>. let me
+            know if you have any trick so that I can avoid this mistake.(P.S. thanks to linter for preventing me to broke pipeline of the deployment 😅)
           </p>
         </div>
       </div>

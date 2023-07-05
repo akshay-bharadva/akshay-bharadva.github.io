@@ -1,11 +1,16 @@
 import Link from "next/link";
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, useState } from "react";
 import { AiOutlineCopyrightCircle } from "react-icons/ai";
 import { BsArrowUpRight } from "react-icons/bs";
 
 type Props = PropsWithChildren;
 
 export default function Footer({ children }: Props) {
+  const [time, setTime] = useState(new Date());
+  setTimeout(() => {
+    setTime(new Date());
+  }, 1000);
+
   return (
     <footer className="my-8 flex flex-col justify-center gap-4 font-space items-center">
       <p className="flex flex-col justify-center items-center gap-2 md:block">
@@ -36,10 +41,10 @@ export default function Footer({ children }: Props) {
         </span>
       </p>
       <p>
-        Akshay Bharadva&nbsp;
         <AiOutlineCopyrightCircle className="inline-block" />
         &nbsp;
-        {new Date().getFullYear()}
+        {new Date().getFullYear()} Akshay Bharadva | {time.getHours()}:
+        {time.getMinutes()}
       </p>
     </footer>
   );
