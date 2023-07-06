@@ -20,7 +20,7 @@ export default function Hero({ children }: Props) {
           </p>
           <p className="font-space">
             Fun but sad fact: I often misspelled the return keyword. i.e,{" "}
-            <span className="text-red-400">&ldquo;reutrn&rdquo;</span>. let me
+            <span className="text-primary-400">&ldquo;reutrn&rdquo;</span>. let me
             know if you have any trick so that I can avoid this mistake.(P.S. thanks to linter for preventing me to broke pipeline of the deployment 😅)
           </p>
         </div>
