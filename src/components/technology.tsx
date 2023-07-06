@@ -51,7 +51,7 @@ export default function Technology({ children }: Props) {
               href={tech.href}
               rel="noreferrer"
               target="_blank"
-              className="text-red-400 hover:text-red-600 transition"
+              className="text-primary-400 hover:text-primary-600 transition"
             >
               <span>
                 {tech.name} <BsArrowUpRight className="inline" />

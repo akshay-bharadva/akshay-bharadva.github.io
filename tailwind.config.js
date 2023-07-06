@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -15,6 +17,12 @@ module.exports = {
       fontFamily: {
         space: ["Space Mono", "monospace", "sans-serif"],
       },
+      colors:{
+        primary:{
+          ...colors.indigo
+        },
+        body: "#131418"
+      }
     },
   },
   plugins: [],

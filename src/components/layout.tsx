@@ -14,7 +14,7 @@ export default function Layout({ children, title = `Portfolio` }: Props) {
       <Head>
         <title>Akshay Bharadva | {title}</title>
       </Head>
-      <div className="flex flex-col justify-between min-h-screen selection:bg-[#fffba0] selection:text-black">
+      <div className="flex flex-col justify-between min-h-screen selection:bg-[#fffba0] selection:text-black bg-body">
         <div>
           <Container>
             <Header />

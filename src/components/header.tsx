@@ -15,6 +15,10 @@ const Links: LinkProps[] = [
   //   label: "Home",
   // },
   // {
+  //   href: "/experience",
+  //   label: "Experience",
+  // },
+  // {
   //   href: "/projects",
   //   label: "Projects",
   // },
@@ -26,7 +30,7 @@ export default function Header({ children }: Props) {
       <div className="hidden sm:flex sm:flex-row sm:gap-x-4">
         {Links.map((link) => (
           <Link
-            className="cursor-pointer rounded-md px-4 py-2 text-xl text-gray-200 duration-100 hover:bg-zinc-800 transition-all"
+            className="cursor-pointer mr-5 transform hover:-translate-y-0.5 hover:text-primary-600 transition-all duration-200 py-2"
             href={link.href}
             key={link.href}
           >

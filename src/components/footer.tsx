@@ -20,7 +20,7 @@ export default function Footer({ children }: Props) {
             href="https://nextjs.org/"
             rel="noreferrer"
             target="_blank"
-            className="text-red-400 hover:text-red-600 transition"
+            className="text-primary-400 hover:text-primary-600 transition"
           >
             Next.js <BsArrowUpRight className="inline" />
           </Link>
@@ -32,7 +32,7 @@ export default function Footer({ children }: Props) {
             href="https://github.com/akshay-bharadva/akshay-bharadva.github.io"
             rel="noreferrer"
             target="_blank"
-            className="text-red-400 hover:text-red-600 transition"
+            className="text-primary-400 hover:text-primary-600 transition"
           >
             <span>
               GitHub <BsArrowUpRight className="inline" />
