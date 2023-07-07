@@ -7,7 +7,8 @@ type Props = PropsWithChildren;
 
 export default function Footer({ children }: Props) {
   const [time, setTime] = useState(new Date());
-  setTimeout(() => {
+
+  setInterval(() => {
     setTime(new Date());
   }, 1000);
 
