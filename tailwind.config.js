@@ -16,6 +16,7 @@ module.exports = {
       },
       fontFamily: {
         space: ["Space Mono", "monospace", "sans-serif"],
+        tahu: ['var(--font-tahu)', "sans-serif"],
       },
       colors:{
         primary:{
