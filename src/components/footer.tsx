@@ -13,7 +13,7 @@ export default function Footer({ children }: Props) {
   }, 1000);
 
   return (
-    <footer className="my-8 flex flex-col justify-center gap-4 font-space items-center">
+    <footer className="my-8 flex flex-col justify-center gap-4 font-space items-center border-t-slate-400 border-t-[1px] pt-10">
       <p className="flex flex-col justify-center items-center gap-2 md:block">
         <span className="">
           Built with{" "}
