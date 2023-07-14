@@ -20,7 +20,7 @@ module.exports = {
       },
       colors:{
         primary:{
-          ...colors.indigo
+          ...colors.blue
         },
         body: "#131418"
       }

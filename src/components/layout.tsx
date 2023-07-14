@@ -4,16 +4,13 @@ import Container from "./container";
 import Header from "./header";
 import Footer from "./footer";
 
-type Props = PropsWithChildren & {
-  title: string;
-};
+type Props = PropsWithChildren;
 
-export default function Layout({ children, title = `Portfolio` }: Props) {
-  console.log("###title-->", title);
+export default function Layout({ children }: Props) {
   return (
     <>
       <Head>
-        <title>Akshay Bharadva | {title}</title>
+        <title>Akshay Bharadva</title>
       </Head>
       <div className="flex flex-col justify-between min-h-screen selection:bg-[#fffba0] selection:text-black bg-body">
         <Container>
