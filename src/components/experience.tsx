@@ -157,7 +157,7 @@ export default function Experience({ children }: Props) {
                 </small>
               ))}
             </p>
-            <p className="font-space">{experience.desc}</p>
+            <div className="font-space">{experience.desc}</div>
           </div>
         ))}
         <p className="mb-2 font-space"></p>

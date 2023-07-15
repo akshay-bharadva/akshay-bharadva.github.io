@@ -4,7 +4,7 @@ import NotFound from "@/components/not-found";
 
 export default function Home() {
   return (
-    <Layout title="404">
+    <Layout>
       <Container>
         <NotFound />
       </Container>

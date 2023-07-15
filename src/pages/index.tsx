@@ -8,9 +8,9 @@ import Tools from "@/components/tools";
 
 export default function Home() {
   return (
-    <Layout title="Portfolio">
+    <Layout>
       <Container>
-        <LittleAboutMyself/>
+        <LittleAboutMyself />
       </Container>
     </Layout>
   );
