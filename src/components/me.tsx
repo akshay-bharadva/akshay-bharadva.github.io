@@ -8,7 +8,8 @@ export default function Me({ children }: Props) {
     <section>
       <div className="flex flex-col gap-5 items-center justify-center w-full h-full mb-10">
         <div className="flex gap-5 items-center">
-          <Image
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src={"https://avatars.githubusercontent.com/u/52954931?v=4"}
             alt="akshay-bharadva"
             className="w-32 rounded-full"

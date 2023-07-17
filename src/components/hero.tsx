@@ -7,9 +7,11 @@ export default function Hero({ children }: Props) {
     <section>
       <div className="flex gap-10 items-center justify-between">
         <div className="">
+          {/* 
           <h2 className="text-3xl font-bold text-white font-space mb-4">
             Akshay Bharadva <small className="text-sm">(He/Him)</small>
           </h2>
+           */}
           <p className="font-space mb-2">
             Heya! I&apos;m fullstack developer and life-long learner, living in
             India. I enjoy learning new technologies and collaborating with
