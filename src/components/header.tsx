@@ -14,10 +14,10 @@ const Links: LinkProps[] = [
     href: "/",
     label: "Home",
   },
-  // {
-  //   href: "/experience",
-  //   label: "Experience",
-  // },
+  {
+    href: "/experience",
+    label: "Experience",
+  },
   // {
   //   href: "/projects",
   //   label: "Projects",
