@@ -19,7 +19,7 @@ const MyExperience: ExperienceType[] = [
     orgName: "SigNoz Inc.",
     orgHref: "https://signoz.io/",
     position: "Freelance Open Source Contributor",
-    from: "April 2022",
+    from: "April 2023",
     to: "Present",
     desc: (
       <>
@@ -36,7 +36,7 @@ const MyExperience: ExperienceType[] = [
     orgHref: "https://digipie.net/",
     position: "React Developer",
     from: "Dec 2022",
-    to: "Present",
+    to: "Aug 2023",
     desc: (
       <>
         <ul>
