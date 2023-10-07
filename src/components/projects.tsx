@@ -18,6 +18,7 @@ export default function Projects({ children }: Props) {
       .then((data) => {
         const projects = data
           .filter((p: any) => !p.private)
+          .filter((p: any) => p.language)
           .filter((p: any) => !p.fork)
           .filter((p: any) => !p.archived)
           .filter((p: any) => !p.name.includes(USERNAME))
@@ -27,7 +28,7 @@ export default function Projects({ children }: Props) {
               new Date(a.updated_at ?? Number.POSITIVE_INFINITY).getTime()
           )
           .sort(
-            (a: any, b: any) => a.description.length - b.description.length
+            (a: any, b: any) => a.description?.length - b.description?.length
           );
         setProjects(projects);
         setLoading(false);
@@ -49,7 +50,7 @@ export default function Projects({ children }: Props) {
             ))}
           </div>
           <p className="mb-2 font-space text-center">
-            Show some love by starring the{" "}
+            Show some <span title="love">❤️</span> by starring the{" "}
             <Link
               href={"https://github.com/akshay-bharadva?tab=repositories"}
               rel="noopener noreferrer nofollow"

@@ -13,8 +13,8 @@ export default function Hero({ children }: Props) {
           </h2>
            */}
           <p className="font-space mb-2">
-            Heya! I&apos;m fullstack developer and life-long learner, living in
-            India. I enjoy learning new technologies and collaborating with
+            Heya! I&apos;m fullstack developer and life-long learner,from India, living in
+            ON, Canada. I enjoy learning new technologies and collaborating with
             other developers to make products a reality. I also enjoy
             open-source, and despite having a full-time job, I devote time to
             exploring open-source projects and studying their tech stack and

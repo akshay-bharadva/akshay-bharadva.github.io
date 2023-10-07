@@ -14,11 +14,11 @@ export default function ProjectCard({ children, project }: Props) {
     >
       <div className="m-3">
         {/* project.clone_url */}
-        <h2 className="text-lg mb-2 font-space capitalize group-hover:text-primary-600 transition">
+        <h2 className="text-lg mb-2 font-space capitalize transition">
           {project.name.replaceAll("-", " ")}
           &nbsp;
           <Link
-            className="cursor-pointer"
+            className="cursor-pointer group-hover:text-primary-600"
             href={project.html_url}
             rel="noopener noreferrer nofollow"
             target="_blank"

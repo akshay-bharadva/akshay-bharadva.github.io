@@ -27,6 +27,8 @@ const MyExperience: ExperienceType[] = [
         monitor and troubleshoot complex distributed systems.
         <br/>
         As a developer with SigNoz, I developed pages such as <span className="text-primary-400">&ldquo;/pricing&rdquo;</span>, <span className="text-primary-400">&ldquo;/team&rdquo;</span>, <span className="text-primary-400">&ldquo;/enterprise&rdquo;</span>, and many more...
+        <br/>
+        My recent work of upgrading Landing page to new was great, checkout the landing page at <Link className="flex gap-1 items-center text-primary-400 hover:text-primary-600" href={"https://signoz.io/"}>signoz.io <BsArrowUpRight/></Link>
       </>
     ),
     techStack: ["React.js", "Docusaurus"],
