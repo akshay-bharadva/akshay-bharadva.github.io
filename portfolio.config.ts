@@ -6,16 +6,16 @@ const portfolioConfig = {
   // ---------------------------------------------------------------------------
   // IDENTITY
   // ---------------------------------------------------------------------------
-  name: "John Doe",
-  title: "Full Stack Engineer",
+  name: "Akshay Bharadva",
+  title: "AI Engineer & Full-Stack Developer",
   description:
     "I build fast, scalable web apps — from pixel-perfect UIs to bulletproof APIs.",
-  profilePicture: "https://github.com/shadcn.png",
+  profilePicture: "https://github.com/akshay-bharadva.png",
   showProfilePicture: true,
 
   logo: {
-    main: "John",
-    highlight: ".dev",
+    main: "AKSHAY",
+    highlight: ".DEV",
   },
 
   bio: [
@@ -53,10 +53,10 @@ const portfolioConfig = {
   // SOCIAL LINKS
   // ---------------------------------------------------------------------------
   socialLinks: [
-    { id: "github", label: "GitHub", url: "https://github.com/vercel" },
-    { id: "linkedin", label: "LinkedIn", url: "https://linkedin.com/in/vercel" },
+    { id: "github", label: "GitHub", url: "https://github.com/akshay-bharadva" },
+    { id: "linkedin", label: "LinkedIn", url: "https://linkedin.com/in/akshay-bharadva" },
     { id: "email", label: "Email", url: "mailto:john@foliokit.dev" },
-    { id: "twitter", label: "Twitter", url: "https://twitter.com/vercel" },
+    { id: "twitter", label: "Twitter", url: "https://twitter.com/akshay-bharadva" },
   ],
 
   // ---------------------------------------------------------------------------
