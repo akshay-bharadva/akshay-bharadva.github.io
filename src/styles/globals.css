@@ -1,0 +1,1854 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&family=Caveat:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Fira+Code:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&family=DM+Serif+Display&family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Unbounded:wght@400;500;600;700;800;900&family=Instrument+Serif&family=Libre+Baskerville:wght@400;700&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================
+   TYPOGRAPHY PRESETS
+   ========================================= */
+:root {
+  --font-display: "Inter", sans-serif;
+  --font-heading: "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-code: "JetBrains Mono", "IBM Plex Mono", monospace;
+  --heading-letter-spacing: -0.02em;
+  --heading-weight: 700;
+  --body-letter-spacing: 0em;
+}
+
+/* 1. Editorial Serif — Playfair Display + DM Sans + Fira Code */
+.typo-editorial {
+  --font-display: "Playfair Display", serif;
+  --font-heading: "Playfair Display", serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-code: "Fira Code", monospace;
+  --heading-letter-spacing: -0.03em;
+  --heading-weight: 700;
+  --body-letter-spacing: 0.005em;
+}
+
+/* 2. Modern Tech — Space Grotesk + Inter + Fira Code */
+.typo-modern-tech {
+  --font-display: "Space Grotesk", sans-serif;
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-code: "Fira Code", monospace;
+  --heading-letter-spacing: -0.03em;
+  --heading-weight: 700;
+  --body-letter-spacing: 0em;
+}
+
+/* 3. Elegant Minimal — Instrument Serif + Manrope + IBM Plex Mono */
+.typo-elegant {
+  --font-display: "Instrument Serif", serif;
+  --font-heading: "Instrument Serif", serif;
+  --font-body: "Manrope", sans-serif;
+  --font-code: "IBM Plex Mono", monospace;
+  --heading-letter-spacing: 0em;
+  --heading-weight: 400;
+  --body-letter-spacing: 0.01em;
+}
+
+/* 4. Bold Quirky — Bricolage Grotesque + Outfit + JetBrains Mono */
+.typo-bold-quirky {
+  --font-display: "Bricolage Grotesque", sans-serif;
+  --font-heading: "Bricolage Grotesque", sans-serif;
+  --font-body: "Outfit", sans-serif;
+  --font-code: "JetBrains Mono", monospace;
+  --heading-letter-spacing: -0.02em;
+  --heading-weight: 800;
+  --body-letter-spacing: 0em;
+}
+
+/* 5. Futuristic — Unbounded + Sora + Fira Code */
+.typo-futuristic {
+  --font-display: "Unbounded", sans-serif;
+  --font-heading: "Unbounded", sans-serif;
+  --font-body: "Sora", sans-serif;
+  --font-code: "Fira Code", monospace;
+  --heading-letter-spacing: -0.01em;
+  --heading-weight: 700;
+  --body-letter-spacing: 0.01em;
+}
+
+/* 6. Classic Pro — Libre Baskerville + Plus Jakarta Sans + IBM Plex Mono */
+.typo-classic-pro {
+  --font-display: "Libre Baskerville", serif;
+  --font-heading: "Libre Baskerville", serif;
+  --font-body: "Plus Jakarta Sans", sans-serif;
+  --font-code: "IBM Plex Mono", monospace;
+  --heading-letter-spacing: -0.01em;
+  --heading-weight: 700;
+  --body-letter-spacing: 0.005em;
+}
+
+/* 7. Clean Geometric — Outfit + DM Sans + JetBrains Mono */
+.typo-geometric {
+  --font-display: "Outfit", sans-serif;
+  --font-heading: "Outfit", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-code: "JetBrains Mono", monospace;
+  --heading-letter-spacing: -0.02em;
+  --heading-weight: 700;
+  --body-letter-spacing: 0em;
+}
+
+/* Apply typography variables globally */
+body {
+  font-family: var(--font-body);
+  letter-spacing: var(--body-letter-spacing);
+}
+
+h1, h2, h3, h4, h5, h6,
+.font-heading {
+  font-family: var(--font-heading);
+  letter-spacing: var(--heading-letter-spacing);
+}
+
+/* Display font for hero/large text */
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: var(--heading-letter-spacing);
+}
+
+/* Ensure nav, card titles, buttons pick up the body font */
+nav, button, input, textarea, select {
+  font-family: var(--font-body);
+}
+
+/* When a non-default typography preset is active, override font-mono on headings
+   so the selected display/heading font takes precedence over hardcoded font-mono classes */
+.typo-editorial h1, .typo-editorial h2, .typo-editorial h3,
+.typo-modern-tech h1, .typo-modern-tech h2, .typo-modern-tech h3,
+.typo-elegant h1, .typo-elegant h2, .typo-elegant h3,
+.typo-bold-quirky h1, .typo-bold-quirky h2, .typo-bold-quirky h3,
+.typo-futuristic h1, .typo-futuristic h2, .typo-futuristic h3,
+.typo-classic-pro h1, .typo-classic-pro h2, .typo-classic-pro h3,
+.typo-geometric h1, .typo-geometric h2, .typo-geometric h3 {
+  font-family: var(--font-heading) !important;
+  letter-spacing: var(--heading-letter-spacing) !important;
+}
+
+/* Display class always wins for hero text */
+.font-display {
+  font-family: var(--font-display) !important;
+  letter-spacing: var(--heading-letter-spacing) !important;
+}
+
+/* =========================================
+   LAYER: BASE (Themes & Typography)
+   ========================================= */
+@layer base {
+  :root,
+  .theme-blueprint {
+    --background: 220 20% 5%;
+    --foreground: 210 20% 90%;
+    --card: 220 18% 8%;
+    --card-foreground: 210 20% 90%;
+    --popover: 220 18% 8%;
+    --popover-foreground: 210 20% 90%;
+    --primary: 200 100% 50%;
+    --primary-foreground: 220 20% 5%;
+    --secondary: 220 15% 13%;
+    --secondary-foreground: 210 20% 90%;
+    --muted: 220 15% 13%;
+    --muted-foreground: 215 12% 55%;
+    --accent: 200 80% 55%;
+    --accent-foreground: 220 20% 5%;
+    --destructive: 0 73% 55%;
+    --destructive-foreground: 210 20% 90%;
+    --border: 220 12% 18%;
+    --input: 220 15% 13%;
+    --ring: 200 100% 50%;
+    --radius: 0.5rem;
+
+    --chart-1: 200 80% 60%;
+    --chart-2: 160 60% 55%;
+    --chart-3: 30 80% 65%;
+    --chart-4: 280 65% 70%;
+    --chart-5: 340 75% 65%;
+  }
+
+  .theme-github-light {
+    --background: 0 0% 100%;
+    --foreground: 212 12% 15%;
+    --card: 210 17% 98%;
+    --card-foreground: 212 12% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 212 12% 15%;
+    --primary: 212 92% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 17% 95%;
+    --secondary-foreground: 212 12% 15%;
+    --muted: 210 17% 95%;
+    --muted-foreground: 213 10% 40%;
+    --accent: 137 55% 35%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 73% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 17% 90%;
+    --input: 210 17% 95%;
+    --ring: 212 92% 45%;
+    --radius: 0.375rem;
+    --chart-1: var(--primary);
+    --chart-2: var(--accent);
+    --chart-3: var(--foreground);
+    --chart-4: var(--muted-foreground);
+    --chart-5: var(--destructive);
+  }
+
+  .theme-github-dark {
+    --background: 210 11% 7%;
+    --foreground: 213 15% 78%;
+    --card: 210 11% 11%;
+    --card-foreground: 213 15% 78%;
+    --popover: 210 11% 7%;
+    --popover-foreground: 213 15% 78%;
+    --primary: 212 92% 45%;
+    --primary-foreground: 210 11% 7%;
+    --secondary: 210 10% 15%;
+    --secondary-foreground: 213 15% 78%;
+    --muted: 210 10% 15%;
+    --muted-foreground: 215 12% 60%;
+    --accent: 137 55% 55%;
+    --accent-foreground: 210 11% 7%;
+    --destructive: 0 73% 60%;
+    --destructive-foreground: 213 15% 78%;
+    --border: 210 10% 19%;
+    --input: 210 10% 15%;
+    --ring: 212 92% 45%;
+    --radius: 0.375rem;
+    --chart-1: var(--primary);
+    --chart-2: var(--accent);
+    --chart-3: var(--foreground);
+    --chart-4: var(--muted-foreground);
+    --chart-5: var(--destructive);
+  }
+
+  /* --- Dracula --- */
+  .theme-dracula {
+    --background: 231 15% 18%;
+    --foreground: 60 30% 96%;
+    --card: 232 14% 21%;
+    --card-foreground: 60 30% 96%;
+    --popover: 232 14% 21%;
+    --popover-foreground: 60 30% 96%;
+    --primary: 265 89% 78%;
+    --primary-foreground: 231 15% 18%;
+    --secondary: 230 14% 25%;
+    --secondary-foreground: 60 30% 96%;
+    --muted: 230 14% 25%;
+    --muted-foreground: 228 8% 60%;
+    --accent: 135 94% 65%;
+    --accent-foreground: 231 15% 18%;
+    --destructive: 0 100% 67%;
+    --destructive-foreground: 60 30% 96%;
+    --border: 230 12% 28%;
+    --input: 230 14% 25%;
+    --ring: 265 89% 78%;
+    --radius: 0.5rem;
+
+    --chart-1: 265 89% 78%;
+    --chart-2: 135 94% 65%;
+    --chart-3: 191 97% 77%;
+    --chart-4: 326 100% 74%;
+    --chart-5: 65 92% 76%;
+  }
+
+  /* --- Nord --- */
+  .theme-nord {
+    --background: 220 16% 22%;
+    --foreground: 219 28% 88%;
+    --card: 220 17% 25%;
+    --card-foreground: 219 28% 88%;
+    --popover: 220 17% 25%;
+    --popover-foreground: 219 28% 88%;
+    --primary: 213 32% 52%;
+    --primary-foreground: 220 16% 22%;
+    --secondary: 220 16% 28%;
+    --secondary-foreground: 219 28% 88%;
+    --muted: 220 16% 28%;
+    --muted-foreground: 219 15% 58%;
+    --accent: 179 25% 65%;
+    --accent-foreground: 220 16% 22%;
+    --destructive: 354 42% 56%;
+    --destructive-foreground: 219 28% 88%;
+    --border: 220 16% 32%;
+    --input: 220 16% 28%;
+    --ring: 213 32% 52%;
+    --radius: 0.5rem;
+
+    --chart-1: 213 32% 52%;
+    --chart-2: 179 25% 65%;
+    --chart-3: 92 28% 65%;
+    --chart-4: 311 20% 63%;
+    --chart-5: 354 42% 56%;
+  }
+
+  /* --- Tokyo Night --- */
+  .theme-tokyo-night {
+    --background: 235 21% 13%;
+    --foreground: 224 20% 78%;
+    --card: 235 18% 16%;
+    --card-foreground: 224 20% 78%;
+    --popover: 235 18% 16%;
+    --popover-foreground: 224 20% 78%;
+    --primary: 218 67% 65%;
+    --primary-foreground: 235 21% 13%;
+    --secondary: 234 17% 19%;
+    --secondary-foreground: 224 20% 78%;
+    --muted: 234 17% 19%;
+    --muted-foreground: 227 12% 50%;
+    --accent: 266 60% 68%;
+    --accent-foreground: 235 21% 13%;
+    --destructive: 348 70% 60%;
+    --destructive-foreground: 224 20% 78%;
+    --border: 234 15% 23%;
+    --input: 234 17% 19%;
+    --ring: 218 67% 65%;
+    --radius: 0.5rem;
+
+    --chart-1: 218 67% 65%;
+    --chart-2: 266 60% 68%;
+    --chart-3: 143 60% 60%;
+    --chart-4: 348 70% 60%;
+    --chart-5: 38 90% 70%;
+  }
+
+  /* --- Catppuccin Mocha --- */
+  .theme-catppuccin-mocha {
+    --background: 240 21% 12%;
+    --foreground: 227 68% 88%;
+    --card: 240 21% 15%;
+    --card-foreground: 227 68% 88%;
+    --popover: 240 21% 15%;
+    --popover-foreground: 227 68% 88%;
+    --primary: 267 84% 81%;
+    --primary-foreground: 240 21% 12%;
+    --secondary: 240 18% 19%;
+    --secondary-foreground: 227 68% 88%;
+    --muted: 240 18% 19%;
+    --muted-foreground: 228 24% 55%;
+    --accent: 189 71% 73%;
+    --accent-foreground: 240 21% 12%;
+    --destructive: 343 81% 75%;
+    --destructive-foreground: 240 21% 12%;
+    --border: 240 17% 23%;
+    --input: 240 18% 19%;
+    --ring: 267 84% 81%;
+    --radius: 0.5rem;
+
+    --chart-1: 267 84% 81%;
+    --chart-2: 189 71% 73%;
+    --chart-3: 343 81% 75%;
+    --chart-4: 115 54% 76%;
+    --chart-5: 23 92% 75%;
+  }
+
+  /* --- One Dark Pro --- */
+  .theme-onedark-pro {
+    --background: 220 13% 18%;
+    --foreground: 219 14% 76%;
+    --card: 220 13% 21%;
+    --card-foreground: 219 14% 76%;
+    --popover: 220 13% 21%;
+    --popover-foreground: 219 14% 76%;
+    --primary: 207 82% 66%;
+    --primary-foreground: 220 13% 18%;
+    --secondary: 220 13% 24%;
+    --secondary-foreground: 219 14% 76%;
+    --muted: 220 13% 24%;
+    --muted-foreground: 219 10% 52%;
+    --accent: 95 38% 62%;
+    --accent-foreground: 220 13% 18%;
+    --destructive: 355 65% 65%;
+    --destructive-foreground: 219 14% 76%;
+    --border: 220 13% 28%;
+    --input: 220 13% 24%;
+    --ring: 207 82% 66%;
+    --radius: 0.5rem;
+
+    --chart-1: 207 82% 66%;
+    --chart-2: 95 38% 62%;
+    --chart-3: 355 65% 65%;
+    --chart-4: 29 54% 61%;
+    --chart-5: 286 60% 67%;
+  }
+
+  /* --- Rosé Pine --- */
+  .theme-rose-pine {
+    --background: 249 22% 12%;
+    --foreground: 245 50% 91%;
+    --card: 248 21% 15%;
+    --card-foreground: 245 50% 91%;
+    --popover: 248 21% 15%;
+    --popover-foreground: 245 50% 91%;
+    --primary: 2 55% 83%;
+    --primary-foreground: 249 22% 12%;
+    --secondary: 248 18% 19%;
+    --secondary-foreground: 245 50% 91%;
+    --muted: 248 18% 19%;
+    --muted-foreground: 249 12% 52%;
+    --accent: 190 30% 70%;
+    --accent-foreground: 249 22% 12%;
+    --destructive: 343 76% 68%;
+    --destructive-foreground: 245 50% 91%;
+    --border: 248 16% 24%;
+    --input: 248 18% 19%;
+    --ring: 2 55% 83%;
+    --radius: 0.5rem;
+
+    --chart-1: 2 55% 83%;
+    --chart-2: 190 30% 70%;
+    --chart-3: 343 76% 68%;
+    --chart-4: 35 60% 72%;
+    --chart-5: 189 43% 73%;
+  }
+
+  /* --- Monokai --- */
+  .theme-monokai {
+    --background: 70 8% 15%;
+    --foreground: 60 12% 82%;
+    --card: 70 8% 18%;
+    --card-foreground: 60 12% 82%;
+    --popover: 70 8% 18%;
+    --popover-foreground: 60 12% 82%;
+    --primary: 80 76% 53%;
+    --primary-foreground: 70 8% 15%;
+    --secondary: 70 8% 22%;
+    --secondary-foreground: 60 12% 82%;
+    --muted: 70 8% 22%;
+    --muted-foreground: 60 5% 52%;
+    --accent: 190 81% 67%;
+    --accent-foreground: 70 8% 15%;
+    --destructive: 338 95% 56%;
+    --destructive-foreground: 60 12% 82%;
+    --border: 70 6% 26%;
+    --input: 70 8% 22%;
+    --ring: 80 76% 53%;
+    --radius: 0.5rem;
+
+    --chart-1: 80 76% 53%;
+    --chart-2: 190 81% 67%;
+    --chart-3: 338 95% 56%;
+    --chart-4: 52 95% 63%;
+    --chart-5: 265 60% 68%;
+  }
+
+  /* --- Ayu Dark --- */
+  .theme-ayu-dark {
+    --background: 220 22% 11%;
+    --foreground: 40 14% 78%;
+    --card: 220 20% 14%;
+    --card-foreground: 40 14% 78%;
+    --popover: 220 20% 14%;
+    --popover-foreground: 40 14% 78%;
+    --primary: 36 100% 50%;
+    --primary-foreground: 220 22% 11%;
+    --secondary: 220 18% 18%;
+    --secondary-foreground: 40 14% 78%;
+    --muted: 220 18% 18%;
+    --muted-foreground: 220 10% 48%;
+    --accent: 200 60% 55%;
+    --accent-foreground: 220 22% 11%;
+    --destructive: 356 70% 58%;
+    --destructive-foreground: 40 14% 78%;
+    --border: 220 16% 22%;
+    --input: 220 18% 18%;
+    --ring: 36 100% 50%;
+    --radius: 0.5rem;
+
+    --chart-1: 36 100% 50%;
+    --chart-2: 200 60% 55%;
+    --chart-3: 356 70% 58%;
+    --chart-4: 145 55% 50%;
+    --chart-5: 265 70% 62%;
+  }
+
+  /* --- Solarized Light --- */
+  .theme-solarized-light {
+    --background: 44 87% 94%;
+    --foreground: 194 14% 40%;
+    --card: 44 87% 91%;
+    --card-foreground: 194 14% 40%;
+    --popover: 44 87% 94%;
+    --popover-foreground: 194 14% 40%;
+    --primary: 205 69% 49%;
+    --primary-foreground: 44 87% 94%;
+    --secondary: 46 42% 88%;
+    --secondary-foreground: 194 14% 40%;
+    --muted: 46 42% 88%;
+    --muted-foreground: 195 10% 52%;
+    --accent: 175 59% 40%;
+    --accent-foreground: 44 87% 94%;
+    --destructive: 1 71% 52%;
+    --destructive-foreground: 44 87% 94%;
+    --border: 44 30% 82%;
+    --input: 46 42% 88%;
+    --ring: 205 69% 49%;
+    --radius: 0.5rem;
+
+    --chart-1: 205 69% 49%;
+    --chart-2: 175 59% 40%;
+    --chart-3: 1 71% 52%;
+    --chart-4: 45 100% 47%;
+    --chart-5: 265 60% 55%;
+  }
+
+  /* --- Catppuccin Latte --- */
+  .theme-catppuccin-latte {
+    --background: 220 23% 95%;
+    --foreground: 234 16% 35%;
+    --card: 220 22% 92%;
+    --card-foreground: 234 16% 35%;
+    --popover: 220 23% 95%;
+    --popover-foreground: 234 16% 35%;
+    --primary: 266 85% 58%;
+    --primary-foreground: 220 23% 95%;
+    --secondary: 220 20% 88%;
+    --secondary-foreground: 234 16% 35%;
+    --muted: 220 20% 88%;
+    --muted-foreground: 233 10% 50%;
+    --accent: 197 57% 48%;
+    --accent-foreground: 220 23% 95%;
+    --destructive: 347 87% 44%;
+    --destructive-foreground: 220 23% 95%;
+    --border: 220 18% 84%;
+    --input: 220 20% 88%;
+    --ring: 266 85% 58%;
+    --radius: 0.5rem;
+
+    --chart-1: 266 85% 58%;
+    --chart-2: 197 57% 48%;
+    --chart-3: 347 87% 44%;
+    --chart-4: 109 58% 40%;
+    --chart-5: 25 78% 52%;
+  }
+
+  /* --- Arctic (Frost) --- */
+  .theme-arctic {
+    --background: 210 40% 96%;
+    --foreground: 214 22% 22%;
+    --card: 210 35% 93%;
+    --card-foreground: 214 22% 22%;
+    --popover: 210 40% 96%;
+    --popover-foreground: 214 22% 22%;
+    --primary: 210 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 28% 88%;
+    --secondary-foreground: 214 22% 22%;
+    --muted: 210 28% 88%;
+    --muted-foreground: 215 14% 45%;
+    --accent: 190 70% 48%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 24% 84%;
+    --input: 210 28% 88%;
+    --ring: 210 100% 50%;
+    --radius: 0.5rem;
+
+    --chart-1: 210 100% 50%;
+    --chart-2: 190 70% 48%;
+    --chart-3: 0 72% 51%;
+    --chart-4: 145 65% 42%;
+    --chart-5: 280 60% 55%;
+  }
+
+  /* --- Paper White --- */
+  .theme-paper {
+    --background: 40 33% 97%;
+    --foreground: 20 10% 20%;
+    --card: 40 30% 94%;
+    --card-foreground: 20 10% 20%;
+    --popover: 40 33% 97%;
+    --popover-foreground: 20 10% 20%;
+    --primary: 20 10% 20%;
+    --primary-foreground: 40 33% 97%;
+    --secondary: 40 20% 90%;
+    --secondary-foreground: 20 10% 20%;
+    --muted: 40 20% 90%;
+    --muted-foreground: 20 6% 50%;
+    --accent: 24 60% 50%;
+    --accent-foreground: 40 33% 97%;
+    --destructive: 0 65% 48%;
+    --destructive-foreground: 40 33% 97%;
+    --border: 40 16% 85%;
+    --input: 40 20% 90%;
+    --ring: 20 10% 20%;
+    --radius: 0.375rem;
+
+    --chart-1: 20 10% 20%;
+    --chart-2: 24 60% 50%;
+    --chart-3: 0 65% 48%;
+    --chart-4: 150 40% 42%;
+    --chart-5: 210 30% 45%;
+  }
+
+  /* --- Cyberpunk --- */
+  .theme-cyberpunk {
+    --background: 270 20% 6%;
+    --foreground: 180 100% 70%;
+    --card: 270 18% 9%;
+    --card-foreground: 180 100% 70%;
+    --popover: 270 18% 9%;
+    --popover-foreground: 180 100% 70%;
+    --primary: 320 100% 60%;
+    --primary-foreground: 270 20% 6%;
+    --secondary: 270 15% 14%;
+    --secondary-foreground: 180 100% 70%;
+    --muted: 270 15% 14%;
+    --muted-foreground: 270 10% 50%;
+    --accent: 180 100% 50%;
+    --accent-foreground: 270 20% 6%;
+    --destructive: 0 90% 55%;
+    --destructive-foreground: 180 100% 70%;
+    --border: 270 12% 20%;
+    --input: 270 15% 14%;
+    --ring: 320 100% 60%;
+    --radius: 0.25rem;
+
+    --chart-1: 320 100% 60%;
+    --chart-2: 180 100% 50%;
+    --chart-3: 50 100% 55%;
+    --chart-4: 260 80% 65%;
+    --chart-5: 0 90% 55%;
+  }
+
+  /* --- Ocean Deep --- */
+  .theme-ocean {
+    --background: 210 50% 7%;
+    --foreground: 200 25% 82%;
+    --card: 210 45% 10%;
+    --card-foreground: 200 25% 82%;
+    --popover: 210 45% 10%;
+    --popover-foreground: 200 25% 82%;
+    --primary: 190 80% 50%;
+    --primary-foreground: 210 50% 7%;
+    --secondary: 210 35% 15%;
+    --secondary-foreground: 200 25% 82%;
+    --muted: 210 35% 15%;
+    --muted-foreground: 210 15% 50%;
+    --accent: 165 60% 50%;
+    --accent-foreground: 210 50% 7%;
+    --destructive: 5 72% 56%;
+    --destructive-foreground: 200 25% 82%;
+    --border: 210 30% 20%;
+    --input: 210 35% 15%;
+    --ring: 190 80% 50%;
+    --radius: 0.5rem;
+
+    --chart-1: 190 80% 50%;
+    --chart-2: 165 60% 50%;
+    --chart-3: 5 72% 56%;
+    --chart-4: 220 65% 58%;
+    --chart-5: 40 75% 55%;
+  }
+
+  /* --- Matrix --- */
+  .theme-matrix {
+    --background: 120 10% 4%;
+    --foreground: 120 80% 60%;
+    --card: 120 10% 7%;
+    --card-foreground: 120 80% 60%;
+    --popover: 120 10% 7%;
+    --popover-foreground: 120 80% 60%;
+    --primary: 120 100% 45%;
+    --primary-foreground: 120 10% 4%;
+    --secondary: 120 8% 11%;
+    --secondary-foreground: 120 80% 60%;
+    --muted: 120 8% 11%;
+    --muted-foreground: 120 20% 38%;
+    --accent: 120 60% 35%;
+    --accent-foreground: 120 100% 80%;
+    --destructive: 0 80% 50%;
+    --destructive-foreground: 120 80% 60%;
+    --border: 120 10% 16%;
+    --input: 120 8% 11%;
+    --ring: 120 100% 45%;
+    --radius: 0.25rem;
+
+    --chart-1: 120 100% 45%;
+    --chart-2: 120 60% 35%;
+    --chart-3: 120 80% 55%;
+    --chart-4: 120 40% 28%;
+    --chart-5: 120 100% 65%;
+  }
+
+  /* --- High Contrast Dark --- */
+  .theme-hc-dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 50 100% 50%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 200 100% 55%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 30%;
+    --input: 0 0% 12%;
+    --ring: 50 100% 50%;
+    --radius: 0.375rem;
+
+    --chart-1: 50 100% 50%;
+    --chart-2: 200 100% 55%;
+    --chart-3: 0 100% 50%;
+    --chart-4: 120 80% 40%;
+    --chart-5: 280 85% 60%;
+  }
+
+  /* --- High Contrast Light --- */
+  .theme-hc-light {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 96%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 220 90% 40%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 92%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 0 0% 92%;
+    --muted-foreground: 0 0% 35%;
+    --accent: 160 80% 30%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 90% 40%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 70%;
+    --input: 0 0% 92%;
+    --ring: 220 90% 40%;
+    --radius: 0.375rem;
+
+    --chart-1: 220 90% 40%;
+    --chart-2: 160 80% 30%;
+    --chart-3: 0 90% 40%;
+    --chart-4: 45 95% 45%;
+    --chart-5: 280 75% 50%;
+  }
+
+  /* ===== NEO-BRUTALISM THEMES ===== */
+
+  /* --- Neo-Brutalism Light --- */
+  .theme-neobrutalism-light {
+    --background: 60 50% 97%;
+    --foreground: 0 0% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 48 96% 53%;
+    --secondary-foreground: 0 0% 8%;
+    --muted: 60 20% 92%;
+    --muted-foreground: 0 0% 35%;
+    --accent: 150 80% 44%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 8%;
+    --input: 60 20% 92%;
+    --ring: 262 83% 58%;
+    --radius: 0.75rem;
+
+    --chart-1: 262 83% 58%;
+    --chart-2: 48 96% 53%;
+    --chart-3: 150 80% 44%;
+    --chart-4: 0 84% 60%;
+    --chart-5: 200 85% 52%;
+  }
+
+  /* --- Neo-Brutalism Dark --- */
+  .theme-neobrutalism-dark {
+    --background: 240 6% 10%;
+    --foreground: 60 50% 97%;
+    --card: 240 5% 14%;
+    --card-foreground: 60 50% 97%;
+    --popover: 240 5% 14%;
+    --popover-foreground: 60 50% 97%;
+    --primary: 48 96% 53%;
+    --primary-foreground: 0 0% 8%;
+    --secondary: 262 83% 58%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 240 4% 20%;
+    --muted-foreground: 240 5% 55%;
+    --accent: 150 80% 44%;
+    --accent-foreground: 0 0% 8%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 60 50% 97%;
+    --border: 60 50% 97%;
+    --input: 240 4% 20%;
+    --ring: 48 96% 53%;
+    --radius: 0.75rem;
+
+    --chart-1: 48 96% 53%;
+    --chart-2: 262 83% 58%;
+    --chart-3: 150 80% 44%;
+    --chart-4: 0 84% 60%;
+    --chart-5: 200 85% 52%;
+  }
+
+  /* --- Neo-Brutalism Punk --- */
+  .theme-neobrutalism-punk {
+    --background: 330 10% 7%;
+    --foreground: 60 100% 70%;
+    --card: 330 8% 11%;
+    --card-foreground: 60 100% 70%;
+    --popover: 330 8% 11%;
+    --popover-foreground: 60 100% 70%;
+    --primary: 340 100% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 60 100% 50%;
+    --secondary-foreground: 0 0% 8%;
+    --muted: 330 6% 16%;
+    --muted-foreground: 330 5% 50%;
+    --accent: 280 100% 65%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 25 100% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 60 100% 70%;
+    --input: 330 6% 16%;
+    --ring: 340 100% 55%;
+    --radius: 0.75rem;
+
+    --chart-1: 340 100% 55%;
+    --chart-2: 60 100% 50%;
+    --chart-3: 280 100% 65%;
+    --chart-4: 25 100% 55%;
+    --chart-5: 180 100% 50%;
+  }
+
+  /* ===== GLASS / LIQUID GLASS THEMES ===== */
+
+  /* --- Glass Dark --- */
+  .theme-glass-dark {
+    --background: 230 20% 8%;
+    --foreground: 220 15% 88%;
+    --card: 230 18% 14%;
+    --card-foreground: 220 15% 88%;
+    --popover: 230 18% 12%;
+    --popover-foreground: 220 15% 88%;
+    --primary: 220 90% 62%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 230 15% 18%;
+    --secondary-foreground: 220 15% 88%;
+    --muted: 230 15% 18%;
+    --muted-foreground: 225 10% 52%;
+    --accent: 260 75% 65%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 220 15% 88%;
+    --border: 230 12% 24%;
+    --input: 230 15% 18%;
+    --ring: 220 90% 62%;
+    --radius: 1rem;
+
+    --chart-1: 220 90% 62%;
+    --chart-2: 260 75% 65%;
+    --chart-3: 170 65% 50%;
+    --chart-4: 340 70% 60%;
+    --chart-5: 45 80% 58%;
+  }
+
+  /* --- Glass Frost (Light) --- */
+  .theme-glass-frost {
+    --background: 220 25% 96%;
+    --foreground: 225 20% 18%;
+    --card: 220 30% 98%;
+    --card-foreground: 225 20% 18%;
+    --popover: 220 30% 98%;
+    --popover-foreground: 225 20% 18%;
+    --primary: 220 85% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 20% 90%;
+    --secondary-foreground: 225 20% 18%;
+    --muted: 220 20% 90%;
+    --muted-foreground: 225 12% 46%;
+    --accent: 190 70% 45%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 18% 84%;
+    --input: 220 20% 90%;
+    --ring: 220 85% 55%;
+    --radius: 1rem;
+
+    --chart-1: 220 85% 55%;
+    --chart-2: 190 70% 45%;
+    --chart-3: 0 72% 50%;
+    --chart-4: 145 60% 40%;
+    --chart-5: 275 65% 55%;
+  }
+
+  /* --- Glass Aurora --- */
+  .theme-glass-aurora {
+    --background: 250 25% 8%;
+    --foreground: 240 15% 88%;
+    --card: 250 22% 12%;
+    --card-foreground: 240 15% 88%;
+    --popover: 250 22% 12%;
+    --popover-foreground: 240 15% 88%;
+    --primary: 160 80% 55%;
+    --primary-foreground: 250 25% 8%;
+    --secondary: 250 18% 17%;
+    --secondary-foreground: 240 15% 88%;
+    --muted: 250 18% 17%;
+    --muted-foreground: 245 10% 50%;
+    --accent: 280 75% 65%;
+    --accent-foreground: 250 25% 8%;
+    --destructive: 350 80% 58%;
+    --destructive-foreground: 240 15% 88%;
+    --border: 250 14% 22%;
+    --input: 250 18% 17%;
+    --ring: 160 80% 55%;
+    --radius: 1rem;
+
+    --chart-1: 160 80% 55%;
+    --chart-2: 280 75% 65%;
+    --chart-3: 200 80% 60%;
+    --chart-4: 350 80% 58%;
+    --chart-5: 45 85% 60%;
+  }
+
+  /* --- Glass Ocean --- */
+  .theme-glass-ocean {
+    --background: 205 45% 8%;
+    --foreground: 200 20% 85%;
+    --card: 205 40% 12%;
+    --card-foreground: 200 20% 85%;
+    --popover: 205 40% 12%;
+    --popover-foreground: 200 20% 85%;
+    --primary: 185 75% 50%;
+    --primary-foreground: 205 45% 8%;
+    --secondary: 205 30% 16%;
+    --secondary-foreground: 200 20% 85%;
+    --muted: 205 30% 16%;
+    --muted-foreground: 205 15% 48%;
+    --accent: 155 65% 50%;
+    --accent-foreground: 205 45% 8%;
+    --destructive: 5 75% 55%;
+    --destructive-foreground: 200 20% 85%;
+    --border: 205 25% 22%;
+    --input: 205 30% 16%;
+    --ring: 185 75% 50%;
+    --radius: 1rem;
+
+    --chart-1: 185 75% 50%;
+    --chart-2: 155 65% 50%;
+    --chart-3: 220 70% 60%;
+    --chart-4: 5 75% 55%;
+    --chart-5: 45 80% 55%;
+  }
+
+  /* ===== RETROFUTURISM / SYNTHWAVE THEMES ===== */
+
+  /* --- Synthwave --- */
+  .theme-synthwave {
+    --background: 270 30% 6%;
+    --foreground: 300 20% 88%;
+    --card: 270 25% 10%;
+    --card-foreground: 300 20% 88%;
+    --popover: 270 25% 10%;
+    --popover-foreground: 300 20% 88%;
+    --primary: 320 100% 65%;
+    --primary-foreground: 270 30% 6%;
+    --secondary: 270 20% 15%;
+    --secondary-foreground: 300 20% 88%;
+    --muted: 270 20% 15%;
+    --muted-foreground: 270 12% 48%;
+    --accent: 190 100% 55%;
+    --accent-foreground: 270 30% 6%;
+    --destructive: 0 85% 55%;
+    --destructive-foreground: 300 20% 88%;
+    --border: 270 18% 22%;
+    --input: 270 20% 15%;
+    --ring: 320 100% 65%;
+    --radius: 0.5rem;
+
+    --chart-1: 320 100% 65%;
+    --chart-2: 190 100% 55%;
+    --chart-3: 270 80% 70%;
+    --chart-4: 50 100% 58%;
+    --chart-5: 0 85% 55%;
+  }
+
+  /* --- Retrowave (Warm Amber CRT) --- */
+  .theme-retrowave {
+    --background: 30 15% 6%;
+    --foreground: 38 90% 75%;
+    --card: 30 12% 10%;
+    --card-foreground: 38 90% 75%;
+    --popover: 30 12% 10%;
+    --popover-foreground: 38 90% 75%;
+    --primary: 38 100% 55%;
+    --primary-foreground: 30 15% 6%;
+    --secondary: 30 10% 14%;
+    --secondary-foreground: 38 90% 75%;
+    --muted: 30 10% 14%;
+    --muted-foreground: 30 15% 42%;
+    --accent: 16 85% 55%;
+    --accent-foreground: 30 15% 6%;
+    --destructive: 0 80% 52%;
+    --destructive-foreground: 38 90% 75%;
+    --border: 30 10% 20%;
+    --input: 30 10% 14%;
+    --ring: 38 100% 55%;
+    --radius: 0.25rem;
+
+    --chart-1: 38 100% 55%;
+    --chart-2: 16 85% 55%;
+    --chart-3: 55 90% 60%;
+    --chart-4: 0 80% 52%;
+    --chart-5: 30 60% 45%;
+  }
+
+  /* --- Terminal Green (CLI) --- */
+  .theme-terminal {
+    --background: 160 15% 4%;
+    --foreground: 120 60% 70%;
+    --card: 160 12% 7%;
+    --card-foreground: 120 60% 70%;
+    --popover: 160 12% 7%;
+    --popover-foreground: 120 60% 70%;
+    --primary: 120 80% 55%;
+    --primary-foreground: 160 15% 4%;
+    --secondary: 160 10% 11%;
+    --secondary-foreground: 120 60% 70%;
+    --muted: 160 10% 11%;
+    --muted-foreground: 150 15% 38%;
+    --accent: 80 70% 55%;
+    --accent-foreground: 160 15% 4%;
+    --destructive: 0 75% 50%;
+    --destructive-foreground: 120 60% 70%;
+    --border: 150 10% 16%;
+    --input: 160 10% 11%;
+    --ring: 120 80% 55%;
+    --radius: 0.125rem;
+
+    --chart-1: 120 80% 55%;
+    --chart-2: 80 70% 55%;
+    --chart-3: 160 60% 45%;
+    --chart-4: 45 80% 55%;
+    --chart-5: 0 75% 50%;
+  }
+
+  article p,
+  .markdown p,
+  .prose p {
+    @apply text-foreground;
+    color: hsl(var(--foreground)) !important;
+  }
+
+  article a,
+  .markdown a,
+  .prose a {
+    @apply text-primary hover:text-primary/80 underline;
+    color: hsl(var(--primary)) !important;
+    white-space: normal;
+    display: inline;
+    overflow-x: hidden;
+  }
+
+  article code,
+  .markdown code,
+  .prose code {
+    @apply bg-muted text-foreground px-1 py-0.5 rounded font-mono text-sm;
+    color: hsl(var(--foreground)) !important;
+    background-color: hsl(var(--muted)) !important;
+  }
+
+  article pre,
+  .markdown pre,
+  .prose pre {
+    @apply bg-muted text-foreground p-4 rounded-lg overflow-x-auto;
+    color: hsl(var(--foreground)) !important;
+    background-color: hsl(var(--muted)) !important;
+  }
+
+  article pre code,
+  .markdown pre code,
+  .prose pre code {
+    @apply bg-transparent p-0;
+    background-color: transparent !important;
+  }
+
+  article blockquote,
+  .markdown blockquote,
+  .prose blockquote {
+    @apply border-l-4 border-primary pl-4 italic text-muted-foreground;
+    color: hsl(var(--muted-foreground)) !important;
+    border-color: hsl(var(--primary)) !important;
+  }
+
+  article ul,
+  article ol,
+  .markdown ul,
+  .markdown ol,
+  .prose ul,
+  .prose ol,
+  article li,
+  .markdown li,
+  .prose li {
+    @apply text-foreground;
+    color: hsl(var(--foreground)) !important;
+  }
+
+  article table,
+  .markdown table,
+  .prose table {
+    @apply border-border;
+    color: hsl(var(--foreground)) !important;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  article th,
+  .markdown th,
+  .prose th {
+    @apply bg-muted text-foreground font-semibold;
+    color: hsl(var(--foreground)) !important;
+    background-color: hsl(var(--muted)) !important;
+  }
+
+  article td,
+  .markdown td,
+  .prose td {
+    @apply border-border text-foreground;
+    color: hsl(var(--foreground)) !important;
+    border-color: hsl(var(--border)) !important;
+  }
+
+  article strong,
+  article b,
+  .markdown strong,
+  .markdown b,
+  .prose strong,
+  .prose b {
+    @apply text-foreground font-bold;
+    color: hsl(var(--foreground)) !important;
+  }
+
+  article em,
+  article i,
+  .markdown em,
+  .markdown i,
+  .prose em,
+  .prose i {
+    @apply text-foreground;
+    color: hsl(var(--foreground)) !important;
+  }
+
+  article hr,
+  .markdown hr,
+  .prose hr {
+    @apply border-border;
+    border-color: hsl(var(--border)) !important;
+  }
+
+  article img,
+  .markdown img,
+  .prose img {
+    @apply rounded-lg;
+  }
+
+  article small,
+  .markdown small,
+  .prose small {
+    @apply text-muted-foreground;
+    color: hsl(var(--muted-foreground)) !important;
+  }
+
+  article mark,
+  .markdown mark,
+  .prose mark {
+    @apply bg-primary/20 text-foreground;
+    background-color: hsl(var(--primary) / 0.2) !important;
+    color: hsl(var(--foreground)) !important;
+  }
+
+  article del,
+  .markdown del,
+  .prose del {
+    @apply text-muted-foreground line-through;
+    color: hsl(var(--muted-foreground)) !important;
+  }
+
+  article kbd,
+  .markdown kbd,
+  .prose kbd {
+    @apply bg-muted text-foreground px-2 py-1 rounded font-mono text-xs border border-border;
+    color: hsl(var(--foreground)) !important;
+    background-color: hsl(var(--muted)) !important;
+    border-color: hsl(var(--border)) !important;
+  }
+
+  /* --- Novel Editor (Tiptap) Styles --- */
+
+  .novel-editor .ProseMirror {
+    @apply prose prose-sm dark:prose-invert max-w-none;
+    @apply min-h-[200px] p-6;
+    @apply focus:outline-none;
+  }
+
+  .novel-editor .ProseMirror h1,
+  .novel-editor .ProseMirror h2,
+  .novel-editor .ProseMirror h3,
+  .novel-editor .ProseMirror h4,
+  .novel-editor .ProseMirror h5,
+  .novel-editor .ProseMirror h6 {
+    @apply font-mono font-semibold tracking-tight;
+  }
+
+  .novel-editor .ProseMirror h1 {
+    @apply text-3xl mt-8 mb-4;
+  }
+
+  .novel-editor .ProseMirror h2 {
+    @apply text-2xl mt-6 mb-3;
+  }
+
+  .novel-editor .ProseMirror h3 {
+    @apply text-xl mt-5 mb-2;
+  }
+
+  .novel-editor .ProseMirror p {
+    @apply leading-7 my-4;
+  }
+
+  .novel-editor .ProseMirror a {
+    @apply text-primary underline cursor-pointer;
+  }
+
+  .novel-editor .ProseMirror a:hover {
+    @apply text-primary/80;
+  }
+
+  .novel-editor .ProseMirror code {
+    @apply bg-muted px-1.5 py-0.5 rounded font-mono text-sm;
+  }
+
+  .novel-editor .ProseMirror pre {
+    @apply bg-muted p-4 rounded-lg overflow-x-auto my-4;
+  }
+
+  .novel-editor .ProseMirror pre code {
+    @apply bg-transparent p-0;
+  }
+
+  .novel-editor .ProseMirror blockquote {
+    @apply border-l-4 border-primary pl-4 italic text-muted-foreground my-4;
+  }
+
+  .novel-editor .ProseMirror ul {
+    @apply list-disc list-outside ml-6 my-4;
+  }
+
+  .novel-editor .ProseMirror ol {
+    @apply list-decimal list-outside ml-6 my-4;
+  }
+
+  .novel-editor .ProseMirror li {
+    @apply my-1;
+  }
+
+  .novel-editor .ProseMirror li p {
+    @apply my-0;
+  }
+
+  .novel-editor .ProseMirror ul[data-type="taskList"] {
+    @apply list-none ml-0;
+  }
+
+  .novel-editor .ProseMirror ul[data-type="taskList"] li {
+    @apply flex items-start gap-2;
+  }
+
+  .novel-editor .ProseMirror ul[data-type="taskList"] li>label {
+    @apply flex items-center;
+  }
+
+  .novel-editor .ProseMirror ul[data-type="taskList"] li>label input[type="checkbox"] {
+    @apply h-4 w-4 rounded border-border cursor-pointer accent-primary;
+  }
+
+  .novel-editor .ProseMirror ul[data-type="taskList"] li[data-checked="true"]>div {
+    @apply line-through text-muted-foreground;
+  }
+
+  .novel-editor .ProseMirror hr {
+    @apply border-border my-8;
+  }
+
+  .novel-editor .ProseMirror table {
+    @apply border-collapse w-full my-4;
+  }
+
+  .novel-editor .ProseMirror table th {
+    @apply border border-border bg-muted p-2 text-left font-semibold;
+  }
+
+  .novel-editor .ProseMirror table td {
+    @apply border border-border p-2;
+  }
+
+  .novel-editor .ProseMirror table tr:hover td {
+    @apply bg-muted/30;
+  }
+
+  .novel-editor .ProseMirror .selectedCell::after {
+    @apply absolute inset-0 bg-primary/10 pointer-events-none;
+    content: "";
+  }
+
+  .novel-editor .ProseMirror img {
+    @apply rounded-lg border max-w-full h-auto my-4;
+  }
+
+  .novel-editor .ProseMirror img.ProseMirror-selectednode {
+    @apply ring-2 ring-primary ring-offset-2;
+  }
+
+  .novel-editor .ProseMirror mark {
+    @apply bg-yellow-200 dark:bg-yellow-800/50 px-0.5 rounded;
+  }
+
+  .novel-editor .ProseMirror p.is-editor-empty:first-child::before {
+    @apply text-muted-foreground pointer-events-none float-left h-0;
+    content: attr(data-placeholder);
+  }
+
+  .novel-editor .ProseMirror.is-editor-empty::before {
+    @apply text-muted-foreground pointer-events-none absolute;
+    content: attr(data-placeholder);
+  }
+
+  .novel-editor .ProseMirror ::selection {
+    @apply bg-primary/20;
+  }
+
+  .novel-editor .ProseMirror .ProseMirror-gapcursor::after {
+    @apply border-t-2 border-foreground;
+  }
+
+  .novel-editor .ProseMirror .column-resize-handle {
+    @apply absolute top-0 right-0 w-1 h-full bg-primary cursor-col-resize;
+  }
+
+  .novel-editor .ProseMirror .resize-cursor {
+    @apply cursor-col-resize;
+  }
+}
+
+/* =========================================
+   LAYER: COMPONENTS (Overrides & Custom)
+   ========================================= */
+@layer components {
+
+  /* --- Glassmorphism Utils --- */
+
+  [class*="theme-glass"] .bg-card,
+  [class*="theme-glass"] [class*="card"] {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: hsl(var(--card) / 0.65);
+    border: 1px solid hsl(var(--border) / 0.3);
+    box-shadow: 0 8px 32px hsl(var(--primary) / 0.06);
+  }
+
+  [class*="theme-glass"] .bg-popover {
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    background: hsl(var(--popover) / 0.8);
+  }
+
+  [class*="theme-glass"] .bg-secondary {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background: hsl(var(--secondary) / 0.5);
+  }
+
+  /* --- Neo-Brutalism Overrides --- */
+
+  [class*="theme-neobrutalism"] .bg-card,
+  [class*="theme-neobrutalism"] [class*="card"] {
+    border: 2px solid hsl(var(--border));
+    box-shadow: 4px 4px 0px hsl(var(--border));
+  }
+
+  [class*="theme-neobrutalism"] .bg-card:hover,
+  [class*="theme-neobrutalism"] [class*="card"]:hover {
+    box-shadow: 6px 6px 0px hsl(var(--border));
+    transform: translate(-1px, -1px);
+  }
+
+  [class*="theme-neobrutalism"] button[class*="default"],
+  [class*="theme-neobrutalism"] [class*="btn-primary"] {
+    border: 2px solid hsl(var(--border));
+    box-shadow: 3px 3px 0px hsl(var(--border));
+  }
+
+  [class*="theme-neobrutalism"] button[class*="default"]:hover,
+  [class*="theme-neobrutalism"] [class*="btn-primary"]:hover {
+    box-shadow: 1px 1px 0px hsl(var(--border));
+    transform: translate(2px, 2px);
+  }
+
+  [class*="theme-neobrutalism"] input,
+  [class*="theme-neobrutalism"] textarea,
+  [class*="theme-neobrutalism"] select {
+    border: 2px solid hsl(var(--border));
+  }
+
+  [class*="theme-neobrutalism"] .badge,
+  [class*="theme-neobrutalism"] [class*="badge"] {
+    border: 2px solid hsl(var(--border));
+    box-shadow: 2px 2px 0px hsl(var(--border));
+  }
+
+  /* --- Background Patterns (Merged) --- */
+
+  /* Modern Grid Background */
+  .bg-grid-pattern {
+    background-color: hsl(var(--background));
+    background-size: 40px 40px;
+    background-image:
+      linear-gradient(to right, hsl(var(--primary) / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--primary) / 0.05) 1px, transparent 1px);
+    -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 30%, black 40%, transparent 100%);
+    mask-image: radial-gradient(ellipse 90% 80% at 50% 30%, black 40%, transparent 100%);
+  }
+
+  /* Technical Card Style */
+  .bg-blueprint-bg {
+    @apply bg-card/50 backdrop-blur-xl border border-border/50 shadow-xl;
+    background-image: linear-gradient(to bottom right,
+        hsl(var(--primary) / 0.03),
+        transparent);
+  }
+
+  .glass-panel {
+    @apply bg-background/60 backdrop-blur-md border border-white/5 shadow-lg;
+  }
+
+  /* --- React Markdown --- */
+
+  .react-markdown {
+    @apply text-foreground;
+
+    /* Override any inline styles that might conflict */
+    * {
+      color: inherit !important;
+    }
+
+    a {
+      color: hsl(var(--primary)) !important;
+    }
+
+    code {
+      color: hsl(var(--foreground)) !important;
+      background-color: hsl(var(--muted)) !important;
+    }
+
+    blockquote {
+      color: hsl(var(--muted-foreground)) !important;
+    }
+  }
+
+  /* --- Google Calendar Theme for FullCalendar --- */
+
+  .gcal-themed .fc {
+    --fc-border-color: hsl(var(--border) / 0.4);
+    --fc-daygrid-event-dot-width: 8px;
+    --fc-list-event-dot-width: 8px;
+    --fc-page-bg-color: transparent;
+    --fc-neutral-bg-color: transparent;
+    --fc-today-bg-color: transparent;
+    font-family: inherit;
+
+    /* ── Toolbar (mobile only — desktop uses custom bar) ── */
+    .fc-header-toolbar {
+      margin: 0 !important;
+      padding: 0.5rem 0.75rem;
+      gap: 0.5rem;
+    }
+
+    .fc-toolbar-title {
+      @apply text-base font-medium text-foreground;
+    }
+
+    .fc-button {
+      @apply h-8 rounded-full px-3 text-xs font-medium transition-all;
+      background: transparent !important;
+      border: 1px solid hsl(var(--border)) !important;
+      color: hsl(var(--foreground) / 0.7) !important;
+      text-transform: none;
+      box-shadow: none !important;
+    }
+
+    .fc-button:hover {
+      background: hsl(var(--accent) / 0.5) !important;
+      color: hsl(var(--foreground)) !important;
+    }
+
+    .fc-button:focus {
+      box-shadow: none !important;
+    }
+
+    .fc-button-active {
+      background: hsl(var(--primary) / 0.12) !important;
+      color: hsl(var(--primary)) !important;
+      border-color: hsl(var(--primary) / 0.3) !important;
+      font-weight: 600 !important;
+    }
+
+    .fc-prev-button,
+    .fc-next-button {
+      @apply h-8 w-8 p-0 flex items-center justify-center;
+      border: none !important;
+      border-radius: 50% !important;
+    }
+
+    /* ── Grid Borders — thin like Google ── */
+    .fc-theme-standard .fc-scrollgrid {
+      border: none !important;
+    }
+
+    .fc-theme-standard td,
+    .fc-theme-standard th {
+      border-color: hsl(var(--border) / 0.3) !important;
+    }
+
+    /* ── Column Headers — minimal like Google ── */
+    .fc-col-header-cell {
+      background: transparent !important;
+      border: none !important;
+      border-bottom: 1px solid hsl(var(--border) / 0.3) !important;
+    }
+
+    .fc-col-header-cell-cushion {
+      @apply text-[11px] uppercase tracking-wide text-muted-foreground font-medium;
+      padding: 8px 0;
+    }
+
+    /* ── Day Cells — clean background ── */
+    .fc-daygrid-day {
+      background: transparent !important;
+      transition: background-color 0.15s;
+    }
+
+    .fc-daygrid-day:hover {
+      background: hsl(var(--accent) / 0.06) !important;
+    }
+
+    /* Today — blue circle on number like Google */
+    .fc-day-today {
+      background: transparent !important;
+    }
+
+    .fc-daygrid-day-number {
+      @apply text-xs p-2;
+      color: hsl(var(--foreground) / 0.7);
+      width: 100%;
+      text-align: center;
+    }
+
+    .fc-day-today .fc-daygrid-day-number {
+      background: hsl(var(--primary));
+      color: hsl(var(--primary-foreground)) !important;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      margin: 4px auto;
+      font-weight: 600;
+    }
+
+    .fc-daygrid-day-top {
+      display: flex;
+      justify-content: center;
+    }
+
+    .fc-day-other .fc-daygrid-day-number {
+      color: hsl(var(--muted-foreground) / 0.35);
+    }
+
+    /* ── Events — Google Calendar pill style ── */
+    .fc-event {
+      cursor: pointer;
+      margin: 1px 2px !important;
+      border: none !important;
+      border-radius: 4px !important;
+      font-size: 11px;
+      line-height: 1.3;
+      transition: filter 0.15s, box-shadow 0.15s;
+    }
+
+    .fc-event:hover {
+      filter: brightness(0.92);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    .fc-h-event {
+      border: none !important;
+    }
+
+    .fc-daygrid-event {
+      border-radius: 4px !important;
+      padding: 1px 6px !important;
+    }
+
+    .fc-daygrid-dot-event {
+      padding: 2px 4px !important;
+    }
+
+    .fc-daygrid-event-dot {
+      border-radius: 50% !important;
+      margin: 0 4px 0 0 !important;
+    }
+
+    .fc-event-main {
+      padding: 0 2px;
+      font-weight: 500;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .fc-event-time {
+      font-size: 10px;
+      font-weight: 400;
+      opacity: 0.9;
+      margin-right: 3px;
+    }
+
+    /* ── Time Grid (week/day) — Google style ── */
+    .fc-timegrid-slot {
+      height: 48px !important;
+      border-color: hsl(var(--border) / 0.2) !important;
+    }
+
+    .fc-timegrid-slot-minor {
+      border-top-style: none !important;
+    }
+
+    .fc-timegrid-slot-label {
+      @apply text-[10px] font-normal;
+      color: hsl(var(--muted-foreground) / 0.6);
+      vertical-align: top;
+      padding-top: 2px !important;
+    }
+
+    .fc-timegrid-col {
+      background: transparent !important;
+    }
+
+    .fc-timegrid-col.fc-day-today {
+      background: hsl(var(--primary) / 0.03) !important;
+    }
+
+    .fc-timegrid-event {
+      border: none !important;
+      border-radius: 4px !important;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+      margin: 0 2px !important;
+    }
+
+    .fc-timegrid-event:hover {
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    }
+
+    .fc-timegrid-event .fc-event-main {
+      padding: 4px 6px;
+      font-size: 11px;
+    }
+
+    .fc-timegrid-axis {
+      background: transparent !important;
+      border: none !important;
+    }
+
+    /* Now indicator — red line like Google */
+    .fc-timegrid-now-indicator-line {
+      border-color: #ea4335 !important;
+      border-width: 2px !important;
+    }
+
+    .fc-timegrid-now-indicator-arrow {
+      border-color: #ea4335 !important;
+      border-width: 5px !important;
+    }
+
+    /* ── All-day section ── */
+    .fc-daygrid-body-natural .fc-daygrid-day-events {
+      margin-bottom: 0;
+    }
+
+    /* ── List / Schedule View — Google style ── */
+    .fc-list {
+      border: none !important;
+    }
+
+    .fc-list-table {
+      border: none !important;
+    }
+
+    .fc-list-day-cushion {
+      background: hsl(var(--secondary) / 0.3) !important;
+      padding: 8px 16px;
+    }
+
+    .fc-list-day-text,
+    .fc-list-day-side-text {
+      color: hsl(var(--foreground));
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .fc-list-event {
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .fc-list-event:hover td {
+      background: hsl(var(--accent) / 0.08) !important;
+    }
+
+    .fc-list-event td {
+      border-color: hsl(var(--border) / 0.2) !important;
+      padding: 10px 16px;
+    }
+
+    .fc-list-event-title a {
+      color: hsl(var(--foreground)) !important;
+      font-weight: 500;
+      font-size: 13px;
+    }
+
+    .fc-list-event-time {
+      color: hsl(var(--muted-foreground)) !important;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .fc-list-event-dot {
+      border-radius: 50% !important;
+    }
+
+    /* ── More Link — Google's "+N more" ── */
+    .fc-daygrid-more-link {
+      @apply text-xs font-medium;
+      color: hsl(var(--foreground) / 0.6);
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+
+    .fc-daygrid-more-link:hover {
+      background: hsl(var(--accent) / 0.1);
+      color: hsl(var(--foreground));
+    }
+
+    .fc-more-popover {
+      @apply bg-popover border border-border shadow-xl rounded-lg;
+    }
+
+    .fc-popover-header {
+      @apply font-medium text-sm;
+      background: hsl(var(--secondary) / 0.3);
+      color: hsl(var(--foreground));
+      padding: 8px 12px;
+      border-bottom: 1px solid hsl(var(--border) / 0.3);
+    }
+
+    /* ── Forecast events (dashed border) ── */
+    .gcal-event-forecast {
+      opacity: 0.65;
+    }
+
+    .gcal-event-forecast .fc-event-main {
+      border: 1.5px dashed currentColor;
+      border-radius: 4px;
+      padding: 0 4px;
+    }
+
+    /* ── Weekend tint ── */
+    .fc-day-sat,
+    .fc-day-sun {
+      background-color: hsl(var(--secondary) / 0.7) !important;
+    }
+
+    .fc-day-sat.fc-day-today,
+    .fc-day-sun.fc-day-today {
+      background-color: transparent !important;
+    }
+
+    /* ── Scrollgrid cleanup ── */
+    .fc-scrollgrid {
+      border: none !important;
+    }
+
+    .fc-scrollgrid-section > td {
+      border: none !important;
+    }
+
+    .fc-view-harness {
+      background: transparent;
+    }
+  }
+
+  /* Global overrides for scrollgrid backgrounds */
+  .gcal-themed .fc-scrollgrid,
+  .gcal-themed .fc-scrollgrid-section,
+  .gcal-themed .fc-scrollgrid-section > td {
+    background-color: transparent !important;
+  }
+}
+
+/* =========================================
+   LAYER: UTILITIES
+   ========================================= */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  /* Scrollbar Customization */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border/60 hover:bg-border rounded-full transition-colors;
+  }
+}
